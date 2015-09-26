@@ -52,7 +52,7 @@ conversation = {
           :prompt =>  "OK, transferring you now.",
           :options =>  [
             {
-              :name =>  "Trasnsfer",
+              :name =>  "Transfer",
               :result =>  "-- Transfer Call --"
             }
           ]
