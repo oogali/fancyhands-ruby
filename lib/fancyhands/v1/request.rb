@@ -1,12 +1,16 @@
 require "oauth"
 class Request
 
-  def initialize(key, secret, url)
+  def initialize(key, secret, test, url)
     @url = url
+    @test = test
     @consumer = OAuth::Consumer.new(key, secret)
   end  
 
   def post(piece, data="")
+    if @test
+      data[:test] = @test
+    end
     response = @consumer.request(:post, @url + piece, nil, {}, data)
     return JSON.parse(response.body)
   end
@@ -24,16 +28,22 @@ class Request
 
   def put(piece, data="")
     # {'Content-Type' => 'application/x-www-form-urlencoded'}
-    response = @consumer.request(:put, @url + piece, nil, {}, data)
+    if @test
+      data[:test] = @test
+    end    
+    response = @consumer.request(:put, @url + piece, nil, {}, data)    
     return JSON.parse(response.body)
   end
 
   def get(piece, data="")
+    if @test
+      data[:test] = @test
+    end    
     if data
       uri = Addressable::URI.new
       uri.query_values = data
       data = uri.query
-    end
+    end    
     full = @url + piece + "?" + data
     response = @consumer.request(:get, full)
     return JSON.parse(response.body)

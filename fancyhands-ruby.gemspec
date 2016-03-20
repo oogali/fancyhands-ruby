@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'fancyhands-ruby'
-  s.version     = '1.0.1'
-  s.date        = '2014-09-26'
+  s.version     = '1.0.3'
+  s.date        = '2016-03-20'
   s.summary     = "Fancy Hands"
   s.description = "A ruby gem for the Fancy Hands API"
   s.authors     = ["Ted Roden"]
@@ -16,10 +16,11 @@ Gem::Specification.new do |s|
                    "lib/fancyhands/v1/echo.rb",
                    "lib/fancyhands/v1/message.rb",
                    "lib/fancyhands/v1/request.rb",
-                   "lib/fancyhands/v1/standard.rb"
+                   "lib/fancyhands/v1/standard.rb"]
   s.homepage    = 'https://github.com/fancyhands/fancyhands-ruby'
   s.license       = 'MIT'
-  s.add_runtime_dependency 'oauth'  
+  s.add_runtime_dependency ['oauth', '>= 0']
+  s.add_runtime_dependency ['addressable', '>= 0']
 end
 
 # requires oatuh, addressable

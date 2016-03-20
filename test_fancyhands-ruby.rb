@@ -1,6 +1,6 @@
-require 'fancyhands'
+require_relative 'lib/fancyhands'
 
-Fancy = FancyHands::V1::Client.new("YOUR API KEY", "YOUR API SECRET")
+Fancy = FancyHands::V1::Client.new("API_KEY", "API_SECRET", true)
 
 standard_request = Fancy.Standard.post("ruby test", "from ruby", 2.50)
 puts "Created request, loading it again"

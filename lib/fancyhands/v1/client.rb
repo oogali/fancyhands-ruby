@@ -18,8 +18,8 @@ module FancyHands
 
       attr_accessor :request
   
-      def initialize(key, secret, url="https://www.fancyhands.com/api/v1/")
-        @request = Request.new(key, secret, url)
+      def initialize(key, secret, test=false, url="https://www.fancyhands.com/api/v1/")
+        @request = Request.new(key, secret, test, url)
         @_standard = @_echo = @_custom = @_message = @_outgoing = @_incoming = @_number = @_history = nil 
       end
 
