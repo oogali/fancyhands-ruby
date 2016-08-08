@@ -6,7 +6,11 @@ module FancyHands
       @client = client
     end
 
-    def post(key="", message="")
+    def post(key="", message="", opts=nil)
+      opts ||= {}
+      key = opts.fetch(:key, key)
+      message = opts.fetch(:message, message)
+
       data = {
         :key => key,
         :message => message,

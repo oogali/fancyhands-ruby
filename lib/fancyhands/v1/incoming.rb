@@ -7,7 +7,8 @@ module FancyHands
       @client = client
     end
 
-    def post(phone_number="", conversation={})
+    def post(phone_number="", conversation={}, opts=nil)
+      opts ||= {}
       data = {
         :phone_number => phone_number,
         :conversation => JSON.generate(conversation)
@@ -16,6 +17,7 @@ module FancyHands
     end
   
     def get(phone_number="", key="", cursor="")
+      opts ||= {}
       data = {
         :phone_number => phone_number,
         :key => key,
@@ -25,6 +27,7 @@ module FancyHands
     end
 
     def put(phone_number=nil, key=nil, conversation={})
+      opts ||= {}
       data = {
         :phone_number => phone_number,
         :conversation =>  JSON.generate(conversation)
@@ -33,6 +36,7 @@ module FancyHands
     end
 
     def delete(phone_number='', key='')
+      opts ||= {}
       data = {
         :phone_number => phone_number,
         :key => key
